@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GrokAPIClient {
     private static final String GROK_API_URL = "https://api.x.ai/v1/chat/completions";
-    private static final String API_KEY = "xai-4fVkQMRvt0CL9ftTYOOEK9VrihSGDGUj7q37i14rworjAoNB3AKbifggB26bPLuNDE2efUSxKZ1y5Cyh";
+    private static final String API_KEY = "";
     private final OkHttpClient client;
     private static final int MAX_TOKENS = 32768;
 
