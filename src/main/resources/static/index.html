@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket STOMP Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<button onclick="connect()">Connect</button>
+<button onclick="disconnect()">Disconnect</button>
+<br/><br/>
+<input type="text" id="name" placeholder="Enter your name"/>
+<button onclick="sendName()">Send</button>
+<ul id="greetings"></ul>
+<script>
+  let stompClient = null;
+
+  function connect() {
+    const socket = new WebSocket('ws://localhost:8094/gs-guide-websocket');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function(frame) {
+      console.log('Connected: ' + frame);
+      stompClient.subscribe('/topic/messages', function(messageOutput) {
+        showGreeting(JSON.parse(messageOutput.body).content);
+      });
+    });
+  }
+
+  function disconnect() {
+    if (stompClient !== null) {
+      stompClient.disconnect();
+    }
+    console.log("Disconnected");
+  }
+
+  function sendName() {
+    const name = document.getElementById('name').value;
+    stompClient.send("/app/chat", {}, JSON.stringify({'name': name}));
+  }
+
+  function showGreeting(message) {
+    const greetings = document.getElementById('greetings');
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(message));
+    greetings.appendChild(li);
+  }
+</script>
+</body>
+</html>
