@@ -15,7 +15,7 @@ public class Gemini {
 
 //    Client client = new Client();
 
-    Client client = Client.builder().apiKey("AIzaSyCqrwXlxGp2hbC2tdE8g15B8In4X66idqo").build();
+    Client client = Client.builder().apiKey("").build();
 
 
     public void processScreenShare(Byte[] base64Image) throws HttpException, IOException {
