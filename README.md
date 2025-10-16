@@ -20,7 +20,7 @@
 ## 🎬 Demo / Docs
 
 - **Product Demo:** _add your video link here_  
-- **Frontend (Sentinel client):** _add link here_  
+- **Frontend (Sentinel client):**  https://github.com/superdevchi/AssistantInterview
 - **This Backend (Spring Boot):** you’re here
 
 > The demo should show: client connects via WS → sends screen frames → backend calls Grog → backend streams findings back → user sees live insights.
@@ -149,7 +149,7 @@
 
 ## 🔗 Links
 
-- **Frontend (Sentinel client):** _add link here_  
+- **Frontend (Sentinel client):**  https://github.com/superdevchi/AssistantInterview
 - **Demo Video:** _add link here_  
 
 ---
